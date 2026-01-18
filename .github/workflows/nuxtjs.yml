@@ -32,6 +32,8 @@ jobs:
       # 3. Chạy lệnh generate để tạo ra folder .output/public (Static site)
       - name: Static HTML export with Nuxt
         run: pnpm run generate
+        env:
+          NITRO_PRESET: github_pages
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
