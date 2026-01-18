@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   app: {
     // Ví dụ nếu link là hoanghaing.github.io/my-countdown thì ghi '/my-countdown/'
     baseURL: '/vhngghn/', 
-    buildAssetsDir: '_nuxt', // Mặc định là _nuxt, giữ nguyên
+    buildAssetsDir: 'assets', // Mặc định là _nuxt, giữ nguyên
   },
   ssr: false,
   compatibilityDate: '2025-07-15',
