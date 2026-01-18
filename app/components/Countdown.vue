@@ -48,47 +48,206 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="my-custom-clock">
-    <div class="unit-box">
-      <span class="val">{{ days }}</span>
-      <span class="lab">Ngày</span>
+  <div class="countdown">
+    <div id="days" class="time-section">
+      <div class='time-group'>
+        <div class='time-segment'>
+          <div class='segment-display'>
+            <div class="segment-display__top">2</div>
+            <div class="segment-display__bottom">2</div>
+            <div class="segment-overlay">
+              <div class="segment-display__top">2</div>
+              <div class="segment-display__bottom">2</div>
+            </div>
+          </div>
+        </div>
+        <div class='time-segment'>
+          <div class='segment-display'>
+            <div class="segment-display__top">2</div>
+            <div class="segment-display__bottom">2</div>
+            <div class="segment-overlay">
+              <div class="segment-overlay__top">2</div>
+              <div class="segment-overlay__bottom">2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>Days</p>
     </div>
-    <div class="unit-box">
-      <span class="val">{{ hours }}</span>
-      <span class="lab">Giờ</span>
+    <div id="hours" class="time-section">
+      <div class='time-group'>
+        <div class='time-segment'>
+          <div class='segment-display'>
+            <div class="segment-display__top">2</div>
+            <div class="segment-display__bottom">2</div>
+            <div class="segment-overlay">
+              <div class="segment-display__top">2</div>
+              <div class="segment-display__bottom">2</div>
+            </div>
+          </div>
+        </div>
+        <div class='time-segment'>
+          <div class='segment-display'>
+            <div class="segment-display__top">2</div>
+            <div class="segment-display__bottom">2</div>
+            <div class="segment-overlay">
+              <div class="segment-overlay__top">2</div>
+              <div class="segment-overlay__bottom">2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>Hours</p>
+    </div>  
+    <div id="minutes" class="time-section">
+      <div class='time-group'>
+        <div class='time-segment'>
+          <div class='segment-display'>
+            <div class="segment-display__top">2</div>
+            <div class="segment-display__bottom">2</div>
+            <div class="segment-overlay">
+              <div class="segment-display__top">2</div>
+              <div class="segment-display__bottom">2</div>
+            </div>
+          </div>
+        </div>
+        <div class='time-segment'>
+          <div class='segment-display'>
+            <div class="segment-display__top">2</div>
+            <div class="segment-display__bottom">2</div>
+            <div class="segment-overlay">
+              <div class="segment-overlay__top">2</div>
+              <div class="segment-overlay__bottom">2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>Minutes</p>
     </div>
-    <div class="unit-box">
-      <span class="val">{{ minutes }}</span>
-      <span class="lab">Phút</span>
-    </div>
-    <div class="unit-box">
-      <span class="val animation-spin">{{ seconds }}</span>
-      <span class="lab">Giây</span>
+    <div id="seconds" class="time-section">
+      <div class='time-group'>
+        <div class='time-segment'>
+          <div class='segment-display'>
+            <div class="segment-display__top">2</div>
+            <div class="segment-display__bottom">2</div>
+            <div class="segment-overlay">
+              <div class="segment-display__top">2</div>
+              <div class="segment-display__bottom">2</div>
+            </div>
+          </div>
+        </div>
+        <div class='time-segment'>
+          <div class='segment-display'>
+            <div class="segment-display__top">2</div>
+            <div class="segment-display__bottom">2</div>
+            <div class="segment-overlay">
+              <div class="segment-overlay__top">2</div>
+              <div class="segment-overlay__bottom">2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p>Seconds</p>
     </div>
   </div>
 </template>
 
 <style scoped>
-/* Dán phần CSS của tutorial vào đây */
-.my-custom-clock {
+* {
+  box-sizing: border-box;
+}
+body {
+  padding-top: 100px;
+}
+.countdown {
   display: flex;
-  gap: 15px;
+  gap: 30px;
+  font-family: sans-serif;
 }
-
-.unit-box {
+.time-section {
   text-align: center;
-  /* Thêm style từ tutorial của bạn... */
+  font-size: 30px;
 }
-
-.val {
+.time-group {
+  display: flex;
+  gap: 10px;
+}
+.time-segment {
   display: block;
-  font-size: 2rem;
-  font-family: monospace;
+  font-size: 100px;
+  font-weight: 900;
+  width: 100px;
 }
-
-/* Ví dụ hiệu ứng cho giây */
-.animation-spin {
-  color: #3b82f6;
-  transition: all 0.5s;
+.segment-display {
+  position: relative;
+  height: 100%;
+}
+.segment-display__top, .segment-display__bottom {
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  height: 50%;
+  position: relative;
+}
+.segment-display__top {
+  background-color: #111;
+  color: #eee;
+  line-height: 1.5;
+}
+.segment-display__bottom {
+  background-color: #333;
+  color: #fff;
+  line-height: 0;
+}
+.segment-overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100px;
+  perspective: 400px;
+}
+.segment-overlay__top,
+.segment-overlay__bottom {
+  position: absolute;
+  overflow: hidden;
+  text-align: center;
+  width: 100%;
+  height: 50%;
+}
+.segment-overlay__top {
+  top: 0;
+  line-height: 1.5;
+  color: #eee;
+  background-color: #111;
+}
+.segment-overlay__bottom {
+  bottom: 0;
+  line-height: 0;
+  color: #fff;
+  background-color: #333;
+  border-top: 2px solid black;
+  transform-origin: top;
+}
+.segment-overlay.flip .segment-overlay__top {
+  animation: flip-top 0.8s linear;
+}
+.segment-overlay.flip .segment-overlay__bottom {
+  animation: flip-bottom 0.8s linear;
+}
+@keyframes flip-top {
+  0% {
+    transform: rotateX(0deg);
+  }
+  50%, 100% {
+    transform: rotateX(-90deg);
+  }
+}
+@keyframes flip-bottom {
+  0%, 50% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
 }
 </style>
