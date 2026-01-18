@@ -41,7 +41,6 @@
 </template>
 
 <style>
-/* Reset mặc định của Nuxt UI Pro để layout chiếm trọn màn hình */
 .u-page-body {
   padding: 0 !important;
   max-width: none !important;

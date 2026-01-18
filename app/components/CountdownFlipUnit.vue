@@ -38,7 +38,6 @@ const props = defineProps({
   label: String
 })
 
-// Chuyển giá trị thành mảng chữ số
 const digits = computed(() => props.value.toString().padStart(2, '0').split(''))
 </script>
 
@@ -49,7 +48,7 @@ const digits = computed(() => props.value.toString().padStart(2, '0').split(''))
   font-weight: 900;
   width: 50px;
   height: 75px;
-  font-size: 60px; /* Tăng size một chút cho đầy đặn */
+  font-size: 60px;
 }
 
 @media (min-width: 768px) {
@@ -60,7 +59,6 @@ const digits = computed(() => props.value.toString().padStart(2, '0').split(''))
   }
 }
 
-/* Căn chỉnh text tuyệt đối khớp nhau */
 span {
   display: block;
   line-height: 0;
@@ -103,10 +101,9 @@ span {
   color: #fff;
   border-top: 1px solid rgba(0,0,0,0.5);
   transform-origin: top;
-  transform: rotateX(90deg); /* Giấu sẵn nửa dưới */
+  transform: rotateX(90deg);
 }
 
-/* Animation lật mượt */
 .flip .overlay-top {
   animation: flip-top 0.4s ease-in forwards;
 }
